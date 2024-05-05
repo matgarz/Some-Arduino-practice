@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "Thomas Pedneault",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-microsd-card",
+      "id": "sd1",
+      "top": -141.43,
+      "left": 93.07,
+      "rotate": 90,
+      "attrs": {}
+    },
+    { "type": "wokwi-ds1307", "id": "rtc1", "top": 234.6, "left": 240.1, "attrs": {} },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot1",
+      "top": -119.6,
+      "left": 349.6,
+      "rotate": 270,
+      "attrs": { "travelLength": "30" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": 113.2, "left": 345.6, "attrs": {} }
+  ],
+  "connections": [
+    [ "sd1:CS", "uno:10", "green", [ "v12.26", "h41.99" ] ],
+    [ "sd1:DI", "uno:11", "green", [ "v19.16", "h23.04" ] ],
+    [ "sd1:VCC", "uno:5V", "red", [ "v26.21", "h-150.87", "v255.74", "h180.08" ] ],
+    [ "sd1:SCK", "uno:13", "green", [ "v30.24", "h-15.24" ] ],
+    [ "sd1:GND", "uno:GND.1", "black", [ "v36.59", "h-34.46" ] ],
+    [ "sd1:DO", "uno:12", "green", [ "v43.84", "h-25.06" ] ],
+    [ "rtc1:5V", "uno:5V", "red", [ "h0" ] ],
+    [ "rtc1:GND", "uno:GND.2", "black", [ "h0" ] ],
+    [ "rtc1:SDA", "uno:A4", "green", [ "h-38.2", "v-63.18", "h31.57" ] ],
+    [ "rtc1:SCL", "uno:A5", "orange", [ "h-46.38", "v-64.5", "h49.25" ] ],
+    [ "pot1:GND", "uno:GND.1", "black", [ "v-54.53", "h-219.3", "v185.44", "h-105.53" ] ],
+    [ "servo1:GND", "uno:GND.3", "black", [ "h-89.79", "v64.07", "h-104.87" ] ],
+    [ "pot1:VCC", "uno:5V", "red", [ "h-87.73", "v80.23", "h-123.87" ] ],
+    [ "pot1:SIG", "uno:A0", "green", [ "v14.47", "h-145.55", "v149.96", "h-110.28" ] ],
+    [ "servo1:V+", "uno:5V", "red", [ "h0" ] ],
+    [ "servo1:PWM", "uno:9", "blue", [ "h-72.94", "v-198.3", "h-137.72" ] ],
+    [ "uno:17", "$serialMonitor:5V", "", [] ],
+    [ "uno:16", "$serialMonitor:A1", "", [] ]
+  ],
+  "serialMonitor": { "display": "terminal", "newline": "lf" },
+  "dependencies": {}
+}
